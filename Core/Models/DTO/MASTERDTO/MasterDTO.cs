@@ -8,5 +8,7 @@ namespace CRM.Core.LeadManagement.Models.DTO.MASTERDTO
 {
     public  class MasterDTO
     {
+        public int  Id { get; set; }
+        public string Name { get; set; }
     }
 }

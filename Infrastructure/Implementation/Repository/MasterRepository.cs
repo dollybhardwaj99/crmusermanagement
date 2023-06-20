@@ -1,5 +1,6 @@
 ﻿using Core.Context;
 using CRM.Core.LeadManagement.Models.DTO.MASTERDTO;
+using CRM.Core.LeadManagement.Models.Parameters.MASTERParmeter;
 using CRM.Infrastructure.LeadManagement.Abstraction.Repository;
 using Dapper;
 using System;
@@ -24,16 +25,31 @@ namespace CRM.Infrastructure.LeadManagement.Implementation.Repository
 
 
 
-        public async Task<IEnumerable<MasterDTO>> GetFinancePaymentStatusMaster()
+        public async Task<IEnumerable<MasterDTO>> GetStudentDetailsMaster()
         {
             using (var connection = _context.CreateConnectionFinance())
             {
                 List<MasterDTO> data = new List<MasterDTO>();
 
-                data = connection.Query<MasterDTO>("Sp_PaymentStatusMaster",
+                data = connection.Query<MasterDTO>("Sp_student",
                      commandType: CommandType.StoredProcedure).ToList();
                 return data;
             }
         }
+
+
+        public async Task<IEnumerable<MasterDTO>> GetStudentDetailsIdMaster(MasterIDparameter parameter)
+        {
+            using (var connection = _context.CreateConnectionFinance())
+            {
+                List<MasterDTO> data = new List<MasterDTO>();
+
+                data = connection.Query<MasterDTO>("Sp_studentID",
+                    param: new { parameter.id },
+                     commandType: CommandType.StoredProcedure).ToList();
+                return data;
+            }
+        
+    }
     }
 }

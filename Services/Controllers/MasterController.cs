@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using System.Threading.Tasks;
 using System;
+using CRM.Core.LeadManagement.Models.Parameters.MASTERParmeter;
 
 namespace CRM.Services.LeadManagement.Controllers
 {
@@ -26,17 +27,17 @@ namespace CRM.Services.LeadManagement.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        [Route("getfinancepaymentstatusmaster")]
+        [Route("getstudentdetailsmaster")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetFinancePaymentStatusMaster()
+        public async Task<IActionResult> GetStudentDetailsMaster()
         {
             try
             {
-                _logger.Information("Called financemasterController - GetFinancePaymentStatusMaster Method with Request");
+                _logger.Information("Called lickomasterController - GetStudentDetailsMaster Method with Request");
                 if (ModelState.IsValid)
                 {
-                    var response = await _iUow.iMasterRepository.GetFinancePaymentStatusMaster();
+                    var response = await _iUow.iMasterRepository.GetStudentDetailsMaster();
                     return Ok(response);
                 }
                 else
@@ -46,7 +47,37 @@ namespace CRM.Services.LeadManagement.Controllers
             }
             catch (Exception ex)
             {
-                _logger.Error("Exception at financemasterController - GetFinancePaymentStatusMaster Method; Details: - {0)", ex.StackTrace);
+                _logger.Error("Exception at lickomasterController - GetStudentDetailsMaster Method; Details: - {0)", ex.StackTrace);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Exception Occured Contact Admin");
+            }
+        }
+
+
+
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("getstudentdetailsidmaster")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetStudentDetailsIdMaster(MasterIDparameter parm)
+        {
+            try
+            {
+                _logger.Information("Called lickomasterController - GetStudentDetailsIdMaster Method with Request");
+                if (ModelState.IsValid)
+                {
+                    var response = await _iUow.iMasterRepository.GetStudentDetailsIdMaster(parm);
+                    return Ok(response);
+                }
+                else
+                {
+                    return BadRequest(new { Message = ModelState.ErrorCount });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("Exception at lickomasterController - GetStudentDetailsIdMaster Method; Details: - {0)", ex.StackTrace);
                 return StatusCode(StatusCodes.Status500InternalServerError, "Exception Occured Contact Admin");
             }
         }
