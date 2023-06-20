@@ -1,7 +1,6 @@
 ﻿using Core.Context;
 using Core.Environment;
-using CRM.Infrastructure.InsuranceLeadManagement.Abstraction.Repository;
-using CRM.Infrastructure.InsuranceLeadManagement.Implementation.Repository;
+
 using CRM.Infrastructure.LeadManagement.Abstraction.Repository;
 using CRM.Infrastructure.LeadManagement.Implementation.Repository;
 using Infrastructure.Abstraction.Repository;
@@ -19,12 +18,9 @@ namespace Infrastructure.Implementation.Repository
         private ApplicationDapperContext _dapContext { get; }
         private MarutiEnvironment _marutiEnvironment { get; }
        
-        private IFinanceMasterRepository _iFinanceMasterRepository;
-            
+     
+        private IMasterRepository _iMasterRepository;
 
-
-        private IFinancePerformanceRepository _iFinancePerformanceRepository;
-      
 
         public UnitOfWork(ApplicationDapperContext dapContext, MarutiEnvironment marutiEnvironment)
         {
@@ -43,23 +39,18 @@ namespace Infrastructure.Implementation.Repository
         }
 
     
-        public IFinanceMasterRepository iFinanceMasterRepository
+  
+  
+
+
+        public IMasterRepository iMasterRepository
         {
             get
             {
-                return _iFinanceMasterRepository ?? (_iFinanceMasterRepository = new FinanceMasterRepository(_dapContext));
+                return _iMasterRepository ?? (_iMasterRepository = new MasterRepository(_dapContext));
             }
             set { }
         }
-
-        public IFinancePerformanceRepository iFinancePerformanceRepository        {
-            get
-            {
-                return _iFinancePerformanceRepository ?? (_iFinancePerformanceRepository = new FinancePerformanceRepository(_dapContext));
-            }
-            set { }
-        }
-
 
     }
 

@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRM.Core.LeadManagement.Models.DTO.FinanceMaster
+namespace CRM.Core.LeadManagement.Models.DTO.MASTERDTO
 {
     public  class MasterDTO
     {
-        public int Id { get; set; }
-        public string Value { get; set; }
     }
 }

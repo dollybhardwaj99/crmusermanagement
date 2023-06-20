@@ -78,7 +78,7 @@ namespace Services
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Dealer CRM FINANCE API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Dealer CRM LICKO API", Version = "v1" });
                 c.AddSecurityDefinition("bearerAuth", new OpenApiSecurityScheme
                 {
                     Name = "Authorization",
@@ -114,7 +114,7 @@ namespace Services
             //{
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DealerCRMFinanceAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DealerCRMLICKOAPI v1"));
             //}
             app.UseSerilogRequestLogging();
 
