@@ -22,6 +22,11 @@ namespace CRM.Services.InsuranceLeadManagement.Controllers
         public FinanceMasterController(IUnitOfWork unit, ILogger logger)
         {
             _iUow = unit;
+
+
+
+
+
             _logger = logger;
         }
 
