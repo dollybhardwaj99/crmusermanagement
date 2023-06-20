@@ -1,0 +1,21 @@
+﻿using AutoMapper;
+using Core.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Services
+{
+    public class MappingProfiles : Profile
+    {
+
+        public MappingProfiles()
+        {
+            //CreateMap<, >().ReverseMap();
+
+            //CreateMap<, >().ReverseMap();
+        }
+        
+    }
+}

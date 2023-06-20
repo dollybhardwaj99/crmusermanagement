@@ -1,0 +1,10 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: SMR-API
+  region: ap-south-1
+nodeGroups:
+  - name: SMR-API-workers
+    instanceType: t2.medium
+    minSize: 1
+    maxSize: 3

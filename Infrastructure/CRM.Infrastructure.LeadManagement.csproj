@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Abstraction\Caching\**" />
+    <Compile Remove="Abstraction\Logging\**" />
+    <Compile Remove="Implementation\Caching\**" />
+    <Compile Remove="Implementation\Logging\**" />
+    <EmbeddedResource Remove="Abstraction\Caching\**" />
+    <EmbeddedResource Remove="Abstraction\Logging\**" />
+    <EmbeddedResource Remove="Implementation\Caching\**" />
+    <EmbeddedResource Remove="Implementation\Logging\**" />
+    <None Remove="Abstraction\Caching\**" />
+    <None Remove="Abstraction\Logging\**" />
+    <None Remove="Implementation\Caching\**" />
+    <None Remove="Implementation\Logging\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Serilog" Version="2.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\CRM.Core.LeadManagement.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.EntityFrameworkCore">
+      <HintPath>..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.entityframeworkcore\2.2.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
