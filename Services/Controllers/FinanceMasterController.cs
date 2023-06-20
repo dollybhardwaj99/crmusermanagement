@@ -27,6 +27,7 @@ namespace CRM.Services.InsuranceLeadManagement.Controllers
 
 
 
+
             _logger = logger;
         }
 
