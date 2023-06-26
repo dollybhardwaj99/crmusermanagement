@@ -95,7 +95,7 @@ namespace CRM.Infrastructure.LeadManagement.Implementation.Repository
             {
                 List<MasterDTO> data = new List<MasterDTO>();
 
-                data = connection.Query<MasterDTO>("Sp_bookID",
+                data = connection.Query<MasterDTO>("Sp_bookmasterID",
                     param: new { parameter.id },
                      commandType: CommandType.StoredProcedure).ToList();
                 return data;
@@ -113,7 +113,22 @@ namespace CRM.Infrastructure.LeadManagement.Implementation.Repository
                 return data;
             }
         }
-        public async Task<IEnumerable<MasterDTO>> GetclassIDMasterId(MasterIDparameter parameter)
+
+       
+        public async Task<IEnumerable<MasterDTO>> GetclassIDMaster(MasterIDparameter parameter)
+        {
+            using (var connection = _context.CreateConnectionFinance())
+            {
+                List<MasterDTO> data = new List<MasterDTO>();
+
+                data = connection.Query<MasterDTO>("Sp_classmasterid",
+                    param: new { parameter.id },
+                     commandType: CommandType.StoredProcedure).ToList();
+                return data;
+            }
+
+        }
+        public async Task<IEnumerable<MasterDTO>> GetclassIdMaster(MasterIDparameter parameter)
         {
             using (var connection = _context.CreateConnectionFinance())
             {
@@ -126,6 +141,7 @@ namespace CRM.Infrastructure.LeadManagement.Implementation.Repository
             }
 
         }
+        
         public async Task<IEnumerable<MasterDTO>> GetexamMaster()
         {
             using (var connection = _context.CreateConnectionFinance())
@@ -143,7 +159,7 @@ namespace CRM.Infrastructure.LeadManagement.Implementation.Repository
             {
                 List<MasterDTO> data = new List<MasterDTO>();
 
-                data = connection.Query<MasterDTO>("Sp_examID",
+                data = connection.Query<MasterDTO>("Sp_exammasterID",
                     param: new { parameter.id },
                      commandType: CommandType.StoredProcedure).ToList();
                 return data;
@@ -167,7 +183,7 @@ namespace CRM.Infrastructure.LeadManagement.Implementation.Repository
             {
                 List<MasterDTO> data = new List<MasterDTO>();
 
-                data = connection.Query<MasterDTO>("Sp_houseID",
+                data = connection.Query<MasterDTO>("Sp_housemasterID",
                     param: new { parameter.id },
                      commandType: CommandType.StoredProcedure).ToList();
                 return data;
@@ -191,7 +207,7 @@ namespace CRM.Infrastructure.LeadManagement.Implementation.Repository
             {
                 List<MasterDTO> data = new List<MasterDTO>();
 
-                data = connection.Query<MasterDTO>("Sp_SchoolId",
+                data = connection.Query<MasterDTO>("Sp_schoolmasterID",
                     param: new { parameter.id },
                      commandType: CommandType.StoredProcedure).ToList();
                 return data;
@@ -208,6 +224,19 @@ namespace CRM.Infrastructure.LeadManagement.Implementation.Repository
                        commandType: CommandType.StoredProcedure).ToList();
                 return data;
             }
+        }
+        public async Task<IEnumerable<MasterDTO>> GetsessionIdMaster(MasterIDparameter parameter)
+        {
+            using (var connection = _context.CreateConnectionFinance())
+            {
+                List<MasterDTO> data = new List<MasterDTO>();
+
+                data = connection.Query<MasterDTO>("Sp_sessionmasterID",
+                    param: new { parameter.id },
+                     commandType: CommandType.StoredProcedure).ToList();
+                return data;
+            }
+
         }
         public async Task<IEnumerable<MasterDTO>> GetstudentMaster()
         {
