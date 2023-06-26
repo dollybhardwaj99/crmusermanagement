@@ -18,7 +18,7 @@ namespace CRM.Infrastructure.LeadManagement.Abstraction.Repository
         Task<IEnumerable<MasterDTO>> GetbookMaster();
         Task<IEnumerable<MasterDTO>> GetbookIdMaster(MasterIDparameter parameter);
         Task<IEnumerable<MasterDTO>> GetclassMaster();
-       // Task<IEnumerable<MasterDTO>> GetclassIDMaster(MasterIDparameter parameter);
+        Task<IEnumerable<MasterDTO>> GetclassIDMaster(MasterIDparameter parameter);
         Task<IEnumerable<MasterDTO>> GetexamMaster();
         Task<IEnumerable<MasterDTO>> GetexamIdMaster(MasterIDparameter parameter);
         Task<IEnumerable<MasterDTO>> GethouseMaster();
@@ -26,6 +26,7 @@ namespace CRM.Infrastructure.LeadManagement.Abstraction.Repository
         Task<IEnumerable<MasterDTO>> GetschoolMaster();
         Task<IEnumerable<MasterDTO>> GetschoolIdMaster(MasterIDparameter parameter);
         Task<IEnumerable<MasterDTO>> GetsessionMaster();
+        Task<IEnumerable<MasterDTO>> GetsessionIdMaster(MasterIDparameter parameter);
         Task<IEnumerable<MasterDTO>> GetstudentMaster();
         Task<IEnumerable<MasterDTO>> GetstudentIdMaster(MasterIDparameter parameter);
         Task<IEnumerable<MasterDTOMessage>> submitExammaster(SubmitExammasterparmeter parameter);
