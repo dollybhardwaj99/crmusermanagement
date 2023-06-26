@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace CRM.Core.LeadManagement.Models.DTO.MASTERDTO
 {
-    public  class MasterDTO
+    public  class MasterDTOMessage
     {
-        public int  Id { get; set; }
-        public string Name { get; set; }
-        public string mobile { get; set; }
+        public string Message { get; set; }
     }
 }

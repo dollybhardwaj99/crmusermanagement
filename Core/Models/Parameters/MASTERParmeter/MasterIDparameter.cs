@@ -8,6 +8,6 @@ namespace CRM.Core.LeadManagement.Models.Parameters.MASTERParmeter
 {
     public  class MasterIDparameter
     {
-        public string id { get; set; }
+        public int id { get; set; }
     }
 }
