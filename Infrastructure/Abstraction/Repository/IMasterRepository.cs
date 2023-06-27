@@ -1,4 +1,5 @@
-﻿using CRM.Core.LeadManagement.Models.DTO.MASTERDTO;
+﻿using CRM.Core.LeadManagement.Models.DTO;
+using CRM.Core.LeadManagement.Models.DTO.MASTERDTO;
 using CRM.Core.LeadManagement.Models.Parameters;
 using CRM.Core.LeadManagement.Models.Parameters.MASTERParmeter;
 using System;
@@ -30,6 +31,8 @@ namespace CRM.Infrastructure.LeadManagement.Abstraction.Repository
         Task<IEnumerable<MasterDTO>> GetstudentMaster();
         Task<IEnumerable<MasterDTO>> GetstudentIdMaster(MasterIDparameter parameter);
         Task<IEnumerable<MasterDTOMessage>> submitExammaster(SubmitExammasterparmeter parameter);
+        Task<updatedto> PutclassMaster(updateclassmaster parameter);
+
 
     }
 }

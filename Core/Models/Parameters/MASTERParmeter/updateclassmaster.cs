@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace CRM.Core.LeadManagement.Models.Parameters.MASTERParmeter
 {
-    public  class MasterIDparameter
+    public class updateclassmaster
     {
         public int id { get; set; }
-    }
+        public string FFFFF { get; set; }
 
+    }
 }

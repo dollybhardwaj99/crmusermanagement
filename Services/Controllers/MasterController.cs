@@ -537,6 +537,34 @@ namespace CRM.Services.LeadManagement.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Exception Occured Contact Admin");
             }
         }
+        [AllowAnonymous]
+        [HttpPut]
+        [Route("putclassmaster")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> PutclassMaster(updateclassmaster parm)
+        {
+            try
+            {
+                _logger.Information("Called lickomasterController - PutclassMaster Method with Request");
+                if (ModelState.IsValid)
+                {
+                    var response = await _iUow.iMasterRepository.PutclassMaster(parm);
+                    return Ok(response);
+                }
+                else
+                {
+                    return BadRequest(new { Message = ModelState.ErrorCount });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("Exception at lickomasterController - PutclassMaster Method; Details: - {0)", ex.StackTrace);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Exception Occured Contact Admin");
+            }
+
+        }
+
     }
 }
 

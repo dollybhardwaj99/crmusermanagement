@@ -1,9 +1,11 @@
 ﻿using Core.Context;
+using CRM.Core.LeadManagement.Models.DTO;
 using CRM.Core.LeadManagement.Models.DTO.MASTERDTO;
 using CRM.Core.LeadManagement.Models.Parameters;
 using CRM.Core.LeadManagement.Models.Parameters.MASTERParmeter;
 using CRM.Infrastructure.LeadManagement.Abstraction.Repository;
 using Dapper;
+using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -238,6 +240,22 @@ namespace CRM.Infrastructure.LeadManagement.Implementation.Repository
             }
 
         }
+        public async Task<updatedto> PutclassMaster(updateclassmaster parameter)
+        {
+            using (var connection = _context.CreateConnectionFinance())
+            {
+                
+
+              var  data = connection.Query<updatedto>("Sp_updateClassMaster",
+                    param: new { parameter.id, parameter.FFFFF  },
+                     commandType: CommandType.StoredProcedure).FirstOrDefault();
+                return data;
+            }
+           
+
+        }
+
+
         public async Task<IEnumerable<MasterDTO>> GetstudentMaster()
         {
             using (var connection = _context.CreateConnectionFinance())
