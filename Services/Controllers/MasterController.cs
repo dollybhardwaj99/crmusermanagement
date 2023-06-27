@@ -440,7 +440,7 @@ namespace CRM.Services.LeadManagement.Controllers
                 _logger.Information("Called lickomasterController - GetsessionIdMaster Method with Request");
                 if (ModelState.IsValid)
                 {
-                    var response = await _iUow.iMasterRepository.GetsessionIdMaster(parm);
+                    var response = await _iUow.iMasterRepository.GetschoolIdMaster(parm);
                     return Ok(response);
                 }
                 else
@@ -453,9 +453,10 @@ namespace CRM.Services.LeadManagement.Controllers
                 _logger.Error("Exception at lickomasterController - GetsessionIdMaster Method; Details: - {0)", ex.StackTrace);
                 return StatusCode(StatusCodes.Status500InternalServerError, "Exception Occured Contact Admin");
             }
+
         }
 
-        [AllowAnonymous]
+            [AllowAnonymous]
         [HttpGet]
         [Route("getstudentmaster")]
         [ProducesResponseType(StatusCodes.Status200OK)]
